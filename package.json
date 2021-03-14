@@ -1,7 +1,7 @@
 {  
-  "name": "Inflight Dublin - Flight Data - Demo APP",
+  "name": "@inflight/demo-app",
   "version": "1.0.0",
-  "description": "React + express with MongoDB on Docker",
+  "description": "Inflight Dublin - Flight Data - Demo APP: React + express with MongoDB on Docker",
   "author": "Franklin Joseph <franklinjoseph360@gmail.com>",
   "devDependencies": {
     "@babel/core": "^7.13.10",

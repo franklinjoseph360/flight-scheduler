@@ -1,6 +1,6 @@
-FROM alpine:3.10
+FROM node
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/flight_scheduler
 
 COPY package*.json ./
 
