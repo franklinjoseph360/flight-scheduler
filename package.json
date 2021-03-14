@@ -1,4 +1,8 @@
-{
+{  
+  "name": "Inflight Dublin - Flight Data - Demo APP",
+  "version": "1.0.0",
+  "description": "React + express with MongoDB on Docker",
+  "author": "Franklin Joseph <franklinjoseph360@gmail.com>",
   "devDependencies": {
     "@babel/core": "^7.13.10",
     "@babel/plugin-transform-runtime": "^7.13.10",
@@ -25,7 +29,7 @@
   },
   "scripts": {
     "start": "node server/index.js",
-    "dev": "webpack --mode development && node --trace-warnings server/index.js",
+    "dev": "webpack --mode development && node server/index.js",
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
