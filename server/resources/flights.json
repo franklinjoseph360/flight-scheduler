@@ -1,0 +1,60 @@
+[{
+    "id": 1,
+    "flightCode": "AY11385",
+    "flightProvider": "lufthansa",
+    "sourcePortName": "Frankfurt FRA",
+    "sourcePortCode": "5233",
+    "destinationPortName": "Birmingham",
+    "destinationPortCode": "GDFS234",
+    "scheduledArrival": "19-10-2019",
+    "scheduledDeparture": "19-10-2019",
+    "status": "LANDED"
+},
+{
+    "id": 2,
+    "flightCode": "AY11385",
+    "flightProvider": "lufthansa",
+    "sourcePortName": "Frankfurt FRA",
+    "sourcePortCode": "5233",
+    "destinationPortName": "Birmingham",
+    "destinationPortCode": "GDFS234",
+    "scheduledArrival": "19-10-2019",
+    "scheduledDeparture": "19-10-2019",
+    "status": "LANDED"
+},
+{
+    "id": 3,
+    "flightCode": "AY11385",
+    "flightProvider": "lufthansa",
+    "sourcePortName": "Frankfurt FRA",
+    "sourcePortCode": "5233",
+    "destinationPortName": "Birmingham",
+    "destinationPortCode": "GDFS234",
+    "scheduledArrival": "19-10-2019",
+    "scheduledDeparture": "19-10-2019",
+    "status": "DELAYED"
+},
+{
+    "id": 4,
+    "flightCode": "AY11385",
+    "flightProvider": "lufthansa",
+    "sourcePortName": "Frankfurt FRA",
+    "sourcePortCode": "5233",
+    "destinationPortName": "Birmingham",
+    "destinationPortCode": "GDFS234",
+    "scheduledArrival": "19-10-2019",
+    "scheduledDeparture": "19-10-2019",
+    "status": "ON SCHEDULE"
+},
+{
+    "id": 5,
+    "flightCode": "AY11385",
+    "flightProvider": "lufthansa",
+    "sourcePortName": "Frankfurt FRA",
+    "sourcePortCode": "5233",
+    "destinationPortName": "Birmingham",
+    "destinationPortCode": "GDFS234",
+    "scheduledArrival": "19-10-2019",
+    "scheduledDeparture": "19-10-2019",
+    "status": "LANDED"
+}]
