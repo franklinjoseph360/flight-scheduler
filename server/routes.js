@@ -6,11 +6,9 @@ router.route('/flights')
     .get(FlightController.getAll)
     .post(FlightController.new);
 
-// router.route('/flights/:id')
-//     .get(FlightController.view)
-//     .patch(FlightController.update)
-//     .put(FlightController.update)
-//     .delete(FlightController.delete);
+router.route('/flights/:id')
+    .get(FlightController.view)
+    .put(FlightController.update)
+    .delete(FlightController.delete);
 
-// Export API routes
 module.exports = router;

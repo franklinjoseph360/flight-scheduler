@@ -16,6 +16,64 @@ exports.getAll = function (req, res) {
     })
 }
 
+exports.view = function (req, res) {
+    if (req.params.id) {
+        try {
+            const filter = {
+                id: req.params.id
+            }
+            Flight.findOne(filter, (err, flight) => {
+                if (err) res.send(err)
+                res.json({
+                    flight
+                })
+            })
+        } catch (err) {
+            res.send(err)
+        }
+    }
+}
+
+exports.delete = async function (req, res) {
+    if (req.params.id) {
+        try {
+            Flight.findOneAndRemove({ id: req.params.id }, {}, function (err, data) {
+                if (!err) {
+                    console.log("Deleted");
+                    res.send(true)
+                } else res.send(err)
+            });
+        }catch(err) {
+            res.send(err);
+        }
+    }
+}
+
+exports.update = async function (req, res) {
+    if (req.params.id && req.body.status) {
+        try {
+            if (req.body.status === "") throw new Error("Must have a valid status")
+            const filter = {
+                id: req.params.id
+            }
+            const update = {
+                status: req.body.status
+            }
+            const flight = await Flight.findOneAndUpdate(filter, update, {
+                new: true,
+                upsert: false,
+                rawResult: true
+            })
+            console.log('flight', flight)
+            res.json({
+                flight: flight.value
+            })
+        } catch (err) {
+            res.send(err)
+        }
+    }
+}
+
 exports.new = function (req, res) {
     if (req.body.flightCode && req.body.flightCode !== "") {
         const input = req.body;
@@ -33,8 +91,8 @@ exports.new = function (req, res) {
             flight.destinationPortName = input.destinationPortName;
             flight.destinationPortCode = input.destinationPortCode;
 
-            if(arrival) flight.scheduledArrival = arrival;
-            if(departure) flight.scheduledDeparture = departure;
+            if (arrival) flight.scheduledArrival = arrival;
+            if (departure) flight.scheduledDeparture = departure;
 
             flight.status = input.status;
 
@@ -47,7 +105,7 @@ exports.new = function (req, res) {
                     data: flight
                 });
             });
-        } catch(err) {
+        } catch (err) {
             res.send(err)
         }
     }
