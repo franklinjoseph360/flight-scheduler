@@ -81,6 +81,19 @@ const FlightDataView = ({
         }
     }
 
+    const deleteRecord = async (e) => {
+        e.preventDefault();
+        axios.delete(`${process.env.REACT_APP_FLIGHTS_API_ENDPOINT}/${flightData.id}`)
+            .then(async (res) => {
+                if(res.data.result) close(false);
+                else throw new Error("Delete unsuccessfull")
+            })
+            .catch(err => {
+                console.log('Error deleting data' + err);
+                setError(err.toString())
+            })
+    }
+
     return (
         <Modal
             disablePortal
@@ -97,7 +110,12 @@ const FlightDataView = ({
                         <Typography variant="h6" className={classes.title}>
                             Update Flight Status
                         </Typography>
-                        <Button component='button' size='small' variant='contained' color="secondary" onClick={() => close([])}>close</Button>
+                        <div>
+                            <Button component='button' size='small' variant='contained' color="secondary" onClick={() => close(false)}>close</Button>
+                        &nbsp;
+                        <Button component='button' size='small' variant='contained'
+                                style={{ backgroundColor: 'red', color: 'white' }} onClick={(e) => deleteRecord(e)}>Delete</Button>
+                        </div>
                     </Toolbar>
                 </AppBar>
                 {errorMessage &&

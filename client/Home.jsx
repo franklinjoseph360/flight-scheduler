@@ -55,14 +55,18 @@ export const Home = () => {
     }
 
     const closeFlightData = (updatedData) => {
-        let flightsList = flights && flights.map((flight) => {
-            if (flight.id === updatedData.id) {
-                return updatedData
-            } else return flight;
-        });
-        loadFlightsData(flightsList);
-        setCurrentData(false);
-        setSuccessMessage("Updated Successfully")
+        if(updatedData) {
+            let flightsList = flights && flights.map((flight) => {
+                if (flight.id === updatedData.id) {
+                    return updatedData
+                } else return flight;
+            });
+            loadFlightsData(flightsList);
+            setCurrentData(false);
+            setSuccessMessage("Updated Successfully")
+        }else {
+            setCurrentData(false);
+        }
     }
 
     const closeCreateForm = () => {

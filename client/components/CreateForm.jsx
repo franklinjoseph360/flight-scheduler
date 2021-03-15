@@ -129,6 +129,7 @@ const CreateForm = ({
                                     onChange={(e) => handleChange(e, 'status')}
                                     className={classes.textField}
                                     value={formValues['status']}
+                                    required={true}
                                 >
                                     {statusOptions.map((option, index) => {
                                         return (
