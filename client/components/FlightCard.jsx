@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardContent, Typography, Divider, Link, IconButton } from '@material-ui/core';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import clsx from  'clsx';
+import Moment from 'react-moment';
+import moment from 'moment';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -68,7 +70,11 @@ const FlightCard = ({
             <div className={classes.details}>
                 <CardContent className={classes.content}>
                     <Typography variant="h2" color="primary">
-                        17:05
+                        {flightData.scheduledArrival && 
+                            <>
+                               <Moment date={flightData.scheduledArrival} format="hh:mm" />
+                            </>
+                        }
                     </Typography>
                 </CardContent>
             </div>
