@@ -40,7 +40,9 @@ exports.delete = async function (req, res) {
             Flight.findOneAndRemove({ id: req.params.id }, {}, function (err, data) {
                 if (!err) {
                     console.log("Deleted");
-                    res.send(true)
+                    res.json({
+                        message: 'Deleted', result: true
+                    })
                 } else res.send(err)
             });
         }catch(err) {
