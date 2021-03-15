@@ -5,7 +5,7 @@ import FlightDataView from "./components/FlightDataView.jsx";
 import CreateForm from "./components/CreateForm.jsx";
 import { makeStyles } from '@material-ui/core/styles';
 import Alert from '@material-ui/lab/Alert';
-import Header from "./static/header.jsx";
+import Header from "./static/Header.jsx";
 
 const useStyles = makeStyles((theme) => ({
     root: {
