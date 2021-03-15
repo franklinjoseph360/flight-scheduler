@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Home } from "./Home.jsx";
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { grey } from "@material-ui/core/colors"
+import { grey, red } from "@material-ui/core/colors"
 
 const theme = createMuiTheme({
     root: {

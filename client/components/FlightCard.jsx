@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardContent, Typography, Divider, Link, IconButton } from '@material-ui/core';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import clsx from  'clsx';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -33,11 +35,34 @@ const useStyles = makeStyles((theme) => ({
     },
     link: {
         color: "#388e3c"
+    },
+    badge: {
+        borderRadius: '4px',
+        padding: '5px',
+        display: 'block',
+        width: 'fit-content',
+        fontSize: '12px'
+    },
+    landed: {
+        backgroundColor: 'green',
+        color: 'white'
+    },
+    delayed:  {
+        backgroundColor: 'yellow'
     }
 }));
 
-const FlightCard = () => {
+const FlightCard = ({
+    viewFlightData,
+    flightData
+}) => {
     const classes = useStyles();
+    let cls;
+    if(flightData.status === 'DELAYED') {
+        cls = clsx(classes.badge, classes.delayed);
+    } else {
+        cls = clsx(classes.badge, classes.landed);
+    }
     return (
         <Card className={classes.card}>
             <div className={classes.details}>
@@ -51,18 +76,18 @@ const FlightCard = () => {
             <div className={classes.details}>
                 <CardContent className={classes.content}>
                     <Typography component="h1" variant="h1" color="primary">
-                        Frankfurt FRA
+                        {flightData.sourcePortName}
                     </Typography>
                     <Typography variant="subtitle1" color="secondary">
-                        LH980&nbsp;Lufthansa
+                        {flightData.flightCode}&nbsp;{flightData.flightProvider}
                     </Typography>
                 </CardContent>
             </div>
             <Divider orientation="vertical" className={classes.divider} />
             <div className={classes.details}>
                 <CardContent className={classes.content}>
-                    <Typography component="h5" variant="h5" color="primary">
-                        LANDED
+                    <Typography component="h1" variant="h1" color="primary" className={cls}>
+                        {flightData.status}
                     </Typography>
                 </CardContent>
             </div>
@@ -77,7 +102,7 @@ const FlightCard = () => {
             <div className={classes.details}>
                 <CardContent className={classes.content} style={{ textAlign: 'right' }}>
                     <Typography component="h5" variant="h5">
-                        <Link href="#" color="inherit" className={classes.link}>
+                        <Link href="#" color="inherit" className={classes.link} onClick={() => viewFlightData(flightData.id)}>
                             More Details&nbsp;
                             <IconButton aria-label="More Details">
                                 <ArrowForwardIcon className={classes.link} />
@@ -91,7 +116,8 @@ const FlightCard = () => {
 }
 
 FlightCard.propTyes = {
-    flightDetail: PropTypes.object
+    flightData: PropTypes.object,
+    viewFlightData: PropTypes.func
 }
 
 export default FlightCard;
