@@ -1,6 +1,6 @@
 FROM node
 
-WORKDIR /usr/src/flight_scheduler
+WORKDIR /usr/src/flight-scheduler
 
 COPY package*.json ./
 
